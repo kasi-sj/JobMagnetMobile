@@ -2,11 +2,14 @@ import { View, Text, TouchableOpacity } from 'react-native'
 import { Image } from 'react-native'
 import styles from './popularjobcard.style'
 import { checkImageURL } from '../../../../utils'
-const PopularJobCard = ({item , selectedJob , handleCardPress}) => {
+const PopularJobCard = ({item , selectedJob ,setSelectedJob, handleCardPress}) => {
   return (
     <TouchableOpacity
       style={styles.container(selectedJob, item)}
-      onPress={()=>handleCardPress(item)}
+      onPress={()=>{
+        setSelectedJob(item.job_id);
+        handleCardPress(item)
+      }}
     >
       <TouchableOpacity
         style={styles.logoContainer(selectedJob, item)}

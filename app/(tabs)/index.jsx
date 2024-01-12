@@ -18,18 +18,20 @@ export default function TabOneScreen() {
               backgroundColor:COLORS.lightWhite
             },
             headerShadowVisible:false,
-            headerLeft:() => (
-              <ScreenHeaderBtn
-                iconUrl={icons.menu}
-                dimension = "60%"
-              />
-            ),
-            headerRight:() => (
-              <ScreenHeaderBtn
-                iconUrl={images.profile}
-                dimension = "100%"
-              />
-            ),
+            // headerLeft:() => (
+            //   <ScreenHeaderBtn
+            //     iconUrl={icons.menu}
+            //     dimension = "60%"
+            //     handlePress = {() => router.push("/")}
+            //   />
+            // ),
+            // headerRight:() => (
+            //   <ScreenHeaderBtn
+            //     iconUrl={images.profile}
+            //     dimension = "100%"
+            //     handlePress = {() => router.push("/")}
+            //   />
+            // ),
             headerTitle:""
         }}/>
         <ScrollView showsVerticalScrollIndicator={false}>
@@ -38,7 +40,8 @@ export default function TabOneScreen() {
               flex:1,
               padding : SIZES.medium
             }}>
-            <Welcome/>
+            <Welcome 
+              />
             <Popularjobs/>
             <Nearbyjobs/>
           </View>

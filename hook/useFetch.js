@@ -14,9 +14,9 @@ const useFetch = (endpoint,query) => {
             ...query
         },
         headers: {
-          'X-RapidAPI-Key': 'cae091ed28mshf12e74579a03c05p177c5fjsna786717f0fcf',
-          'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
-        }
+            'X-RapidAPI-Key': '09c93ee04fmsh3364c4bdb438044p1b8f8ajsnaa4d70d512b1',
+            'X-RapidAPI-Host': 'jsearch.p.rapidapi.com'
+          }
     };
 
     const fetchData = async () => {
@@ -24,7 +24,7 @@ const useFetch = (endpoint,query) => {
         try {
             const response = await axios.request(options);
             setData(response.data.data);
-            console.log(response.data.data);
+            // console.log(response.data.data);
             setIsLoading(false);
         } catch (error) {
             setError(error);
@@ -40,9 +40,9 @@ const useFetch = (endpoint,query) => {
         fetchData();
     },[])
 
-    const refetch = () => {
+    const refetch = async () => {
         setIsLoading(true);
-        fetchData();
+        await fetchData();
         setIsLoading(false);
     }
 

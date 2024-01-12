@@ -2,7 +2,8 @@ import { Stack } from 'expo-router';
 import { useCallback } from 'react';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
-export default function TabLayout( { children } : any ) {
+SplashScreen.preventAutoHideAsync();
+export default function TabLayout( { children } ) {
   const [fontsLoaded] = useFonts({
     DMBold: require('../../assets/fonts/DMSans-Bold.ttf'),
     DMRegular: require('../../assets/fonts/DMSans-Regular.ttf'),
@@ -17,6 +18,6 @@ export default function TabLayout( { children } : any ) {
     return null;
   }
     return (
-    <Stack onLayout={onLayoutRootView} />
+    <Stack  />
   );
 }

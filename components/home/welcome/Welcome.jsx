@@ -16,11 +16,15 @@ const jobTypes = ["Full Time", "Part Time", "Contractor" , "Freelance" ];
 
 const Welcome = () => {
   const router = useRouter();
+  
+  const [searchText, setSearchText] = useState("")
   const [activeTabType, setActiveTabType] = useState(jobTypes[0])
   return (
     <View>
       <View style={styles.container}>
-        <Text style={styles.userName}>Hello Kasi</Text>
+        <Text style={styles.userName}>
+          Hai  
+        </Text>
         <Text style={styles.welcomeMessage}>Find your perfect job</Text>
       </View>
       <View style={styles.searchContainer}>
@@ -28,13 +32,21 @@ const Welcome = () => {
           <TextInput 
             style={styles.searchInput}
             placeholder = "what are you looking for?"
-            value = ""
-            onChange={() => {}}
+            value = {searchText}
+            onChange={(text) => {
+              setSearchText(text.nativeEvent.text)
+            }}
           />
         </View>
         <TouchableOpacity 
           style={styles.searchBtn}
-          onPress={()=>{}}
+          onPress={
+            () => {
+              if(searchText != ""){
+                router.push(`/search/${searchText}`);
+              }
+            }
+          }
           >
           <Image 
             source={icons.search}
@@ -51,7 +63,7 @@ const Welcome = () => {
               style={styles.tab(activeTabType,item)}
               onPress={()=>{
                 setActiveTabType(item)
-                router.push('/search/${item}')
+                router.push(`/search/${item}`)
               }}
             >
               <Text style={styles.tabText(activeTabType , item)}>{item}</Text>
